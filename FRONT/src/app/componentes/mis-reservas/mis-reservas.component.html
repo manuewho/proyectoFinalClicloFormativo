@@ -1,0 +1,51 @@
+<div *ngIf="sinReservas" class="container" style="margin-top: 4%; margin-bottom: 6%;">
+    <h4 *ngIf="carga" style="text-align: end;">Mis reservas</h4>
+    <div *ngIf="!carga" id="rueda">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+    <p-accordion >
+    
+        <div *ngFor="let fe  of fechas2[0]">
+    
+            <p-accordionTab  header="{{fe}}" >
+           
+                <div *ngFor="let res of reservas">
+    
+                    <table *ngIf="fe==res.fecha" class="table">
+                   
+                        <tr>
+                            
+                            <th>Código pista: {{res.pista}}</th>
+                            <th style="display: flex; justify-content: end;">{{res.usuario}} {{res.apellidos}}</th>
+                            
+    
+                        </tr>
+                        <tr *ngFor="let hor of res.horas" >
+                            <td  > {{hor.hora}}</td>
+                            
+                            <td style="display: flex; justify-content: end;"> <button (click)="asignar(hor.id,res.fecha,hor.hora)" pButton type="button" label="Eliminar" icon="pi pi-trash" class="p-button-danger"></button></td>
+                        </tr>
+                        
+                    </table>
+    
+                </div>
+              
+              </p-accordionTab>
+    
+        </div>
+    
+        
+       
+    </p-accordion>
+    </div>
+
+    <div *ngIf="!sinReservas" style="margin-top: 5%;">
+       
+        <h2 style="display: flex;  justify-content: center;">Aún no tiene reservas</h2>
+        <a routerLink="/pistasUS" style="display: flex;  justify-content: center;">Reservar</a>
+    </div>
+    
+    <div *ngIf="abrir">
+        <app-confirmacion (retorno)="eliminar($event)" [fecha]="fechaEnvio" [hora]="horaEnvio" [id]="idEnvio"></app-confirmacion>
+    </div>
+    

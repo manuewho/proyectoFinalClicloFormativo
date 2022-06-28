@@ -1,0 +1,70 @@
+<div *ngIf="!checked" class="orden"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="checked" class="orden"  style="margin-top: 5%;">
+    <fieldset class="flotante" style="border: 4px solid rgb(127, 179, 213);" >
+        
+        <img id="img" src="assets/img/man.png"  class="shadow-4">
+        <div class="orden">
+        
+            <form   #usuarioA="ngForm" (ngSubmit)="actualizar(usuarioA.value)"  style=" padding: 3%; width: 80%; " >
+                <div class="orden2">
+                    <div class="grid p-fluid " style="margin: 1%; width: 100%;">
+                        <div class="col-12 md:col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input  name="nombre" [(ngModel)]="usuario.nombre"  required type="text" pInputText placeholder="Email">         
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="grid p-fluid " style="margin: 1%; width: 100%;">
+                        <div class="col-12 md:col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input  name="apellidos" [(ngModel)]="usuario.apellidos" required type="text" pInputText placeholder="Contraseña">         
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    
+                </div>
+
+                <div class="orden2">
+                    <div class="grid p-fluid " id="email">
+                        <div class="col-12 md:col-12">
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <input  name="email" [(ngModel)]="usuario.email"  required type="text" pInputText placeholder="Email">         
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="grid p-fluid" style="margin-left: 12%; margin-top: 1.8%;">
+                        
+                            <div class="p-inputgroup " >
+
+                                <p-triStateCheckbox name="tipo" [(ngModel)]="usuario.tipo" label="Administrador"></p-triStateCheckbox>
+        
+                            </div>
+                       
+                    </div>
+                    <br>
+                    
+                </div>
+                <div class="orden" style="margin-top: 3%;">
+                    <button pButton [disabled]="!usuarioA.valid"  label="Actualizar"  type="submit" class="p-button-secondary p-button-outlined "></button>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+
+</div>
+<div *ngIf="checked" class="orden" style="margin-top: 5%;">
+    <button pButton type="button" routerLink="/usuariosG" icon="pi pi-arrow-down" class="p-button-raised p-button-rounded p-button-outlined volver" ></button>
+
+</div>
+
+<p-dialog header="Error email" position="top" [(visible)]="display" [style]="{'border':'2px solid black'}">
+    Este email ya está registrado.
+</p-dialog>

@@ -1,0 +1,66 @@
+
+<div *ngIf="!checked"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div *ngIf="checked">
+
+<div class="titulo">
+
+    <h3>Activar o desactivar horarios</h3>
+
+</div>
+
+<div style="display: flex; justify-content: center; margin-top: 1%;">
+
+    <div style="display: flex; justify-content: space-around; ">
+        <div class="div1">
+            <div *ngFor="let h of horas; let i=index" class="div1">
+                <div *ngIf="i<6">  
+                        <button *ngIf="h.activo==1" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-success"></button>
+                        <button *ngIf="h.activo==0" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-danger"></button>   
+                </div>
+            </div>
+        </div>
+        <div class="div1">
+            <div *ngFor="let h of horas; let i=index" class="div1">
+                <div *ngIf="i>5 && i<12">
+                   
+                        <button *ngIf="h.activo==1" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-success"></button>
+                        <button *ngIf="h.activo==0" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-danger"></button>
+                </div>
+            </div>
+        </div>
+        <div class="div1">
+            <div *ngFor="let h of horas; let i=index" class="div1">
+                <div *ngIf="i>11 && i<18">
+                        <button *ngIf="h.activo==1" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-success"></button>
+                        <button *ngIf="h.activo==0" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-danger"></button>
+                </div>
+            </div>
+        </div>
+        <div class="div1">
+            <div *ngFor="let h of horas; let i=index" class="div1">
+                <div *ngIf="i>17">
+                        <button *ngIf="h.activo==1" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-success"></button>
+                        <button *ngIf="h.activo==0" (click)="eliOana(h)" style="margin-bottom: 2%;" pButton type="button" label="{{h.hora}}" class="p-button-outlined p-button-danger"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div *ngIf="display">
+    <app-confirmacion-horas (retor)="retorno($event)" [horario]="obj"></app-confirmacion-horas>
+</div>
+
+</div>
+
+<p-dialog header="Activado" position="top" [(visible)]="dis1" [style]="{'border':'2px solid black'}">
+    Se activó la hora correctamente.
+</p-dialog>
+<p-dialog header="Desactivado" position="top" [(visible)]="dis2" [style]="{'border':'2px solid black'}">
+    Se desactivó la hora correctamente.
+</p-dialog>

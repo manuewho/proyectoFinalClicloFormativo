@@ -1,0 +1,65 @@
+<div *ngIf="!checked"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="checked" style="width: 90%; margin-left: 5%; padding-bottom: 5%; margin-top: 2%; margin-bottom: 10%;">
+
+
+<p-table [value]="pistas"  responsiveLayout="scroll" class="p-element" showGridlines="false">
+    <ng-template pTemplate="caption">
+        <h3 class="flex" style="text-align: left; font-family:Verdana, Geneva, Tahoma, sans-serif;">
+            Pistas de padel
+        </h3>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr style="border: 0px;">
+            <th>Numeración</th>
+            <th>Previsualización</th>
+            <th>Exterior/interior</th>
+            <th>Suelo pista</th>
+            <th>Tamaño Pista</th>
+            <th>Iluminación</th>
+            <th>Valoración</th>
+            <th></th>
+            <th></th>
+            
+            
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pistas>
+        <tr >
+            <td >{{pistas.numeracion}}</td>
+            <td><img src="assets/img/{{pistas.imagen}}"  width="100" class="shadow-4" /></td>
+            <td><span *ngIf="pistas.exterior==1">Exterior</span><span *ngIf="pistas.exterior==0">Interior</span></td>
+            <td>{{tipos[pistas.tipopista_id-1]}}</td>
+            <td>{{tamanos[pistas.tamanopista_id-1]}} X {{tamanos[pistas.tamanopista_id-1]}}</td>
+            <td><span *ngIf="pistas.iluminacion==1">Sí</span><span *ngIf="pistas.iluminacion==0">No</span></td>
+            <td><p-rating [ngModel]="pistas.valoracion" [readonly]="true" [cancel]="false"></p-rating></td>
+            <td ><button title="Modificar" routerLink="/gestionp/{{pistas.id}}" class="btn btn-info" ><i class="pi pi-cog" style="font-size: 1rem"></i></button></td>
+            <td ><button title="Eliminar" (click)="asignar(pistas.id,pistas.numeracion)" class="btn btn-danger" ><i class="pi pi-times" style="font-size: 1rem"></i></button></td>
+
+        </tr>
+
+        
+    </ng-template>
+    
+</p-table>
+    <div  style="display: flex; justify-content: center; margin-top: 1.5%;">
+        <button pButton routerLink="/gestionp/-1" type="button" title="Añadir"  class="p-button-success"><i class="pi pi-plus" style="font-size: 1rem"></i></button>
+    </div>
+</div>
+
+<div *ngIf="abrir">
+    <app-eliminar (retorno)="eliminar($event)" [id]="id" [codigo]="codigo"></app-eliminar>
+</div>
+
+
+
+
+<p-dialog header="Error al eliminar pista" position="top" [(visible)]="display2" [style]="{'border':'2px solid black'}">
+    Esta pista tiene reservas asociadas. Elimina las reservas asociadas e inténtelo de nuevo.
+</p-dialog>
+
+
+
+
+

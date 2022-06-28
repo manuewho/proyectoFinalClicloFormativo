@@ -1,0 +1,12 @@
+<div *ngIf="display==1" class="principal">
+    <h2>Desactivar horario</h2>
+    <p>Seguro que quieres desactivar el horario {{horario.hora}} </p>
+    <button pButton type="button" (click)="eliminar()" label="Desactivar" class="p-button-danger"></button><span> &nbsp; </span>
+    <button pButton type="button" (click)="volver()"  label="Cancelar" class="p-button-secondary"></button>
+</div>
+<div *ngIf="display==0" class="principal">
+    <h2>Activar horario</h2>
+    <p>Seguro que quieres activar el horario {{horario.hora}} </p>
+    <button pButton type="button" (click)="anadir()" label="Activar" class="p-button-success"></button><span> &nbsp; </span>
+    <button pButton type="button" (click)="volver()"  label="Cancelar" class="p-button-secondary"></button>
+</div>

@@ -1,0 +1,22 @@
+<div *ngIf="!carga"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="carga" >
+
+<div style="display: flex; justify-content: center; ">
+
+
+<div id="con" 
+[ngClass]="{'disabled':click}" >
+<div id="pista"><b>Pista {{idPista}}</b></div>
+
+
+<full-calendar [options]="options" style="margin-bottom: 10%;"></full-calendar>
+
+</div>
+</div>
+<div *ngIf="click">
+    <app-horarios (retorno)="retorno($event)" [fecha]="fechaH" [pista]="idPista"></app-horarios>
+</div>
+
+</div>

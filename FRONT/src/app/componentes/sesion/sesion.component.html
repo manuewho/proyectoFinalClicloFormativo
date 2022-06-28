@@ -1,0 +1,37 @@
+<fieldset id="fields">
+    
+    <legend class="posicion " style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: rgb(78, 70, 70);">Login</legend>
+
+<form   #sesion="ngForm" (ngSubmit)="inicio(sesion.value)" style="border: 4px solid rgb(127, 179, 213); padding: 3%; width: 60%; position: relative; left: 20%;" >
+    <div class="posicion" *ngIf="mensajeError!=''">
+        <p style="color: rgb(138, 20, 20);">{{mensajeError}}</p>
+    </div>
+
+<div class="grid p-fluid posicion">
+    <div class="col-12 md:col-4">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input [disabled]="iniciado" name="usuario" [(ngModel)]="usuario" required type="text" pInputText placeholder="Email">         
+        </div>
+    </div>
+</div>
+<br>
+<div class="grid p-fluid posicion">
+    <div class="col-12 md:col-4 ">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+            <input [disabled]="iniciado" name="contrasena" [(ngModel)]="contrasena" required type="password" pInputText placeholder="Contraseña">         
+        </div>
+    </div>
+</div>
+<br>
+<div class="posicion">
+    <button pButton [disabled]="!sesion.valid"  label="Iniciar sesión"  type="submit" class="p-button-secondary p-button-outlined "></button>
+</div>
+<div class="posicion" style="margin-top: 2%;">
+    <a routerLink="/registro">Registrarse</a>
+</div>
+
+</form>
+<a *ngIf="iniciado" (click)="cerrarSesion()" class="posicion " style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: rgb(185, 77, 77);">Cerrar sesión</a>
+</fieldset>

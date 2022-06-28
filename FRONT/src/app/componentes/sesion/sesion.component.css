@@ -1,0 +1,17 @@
+.posicion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fields {
+    margin-top: 5%;
+}
+
+
+@media  (max-width: 400px){ 
+    #fields {
+        margin-top: 25%;
+    }
+    
+}

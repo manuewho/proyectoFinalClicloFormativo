@@ -1,0 +1,36 @@
+.div1 {
+    margin: 5%;
+    transition: all 1s;
+}
+
+.titulo {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 4%;
+}
+
+#rueda {
+    margin-top:10%; 
+    display: flex; 
+    justify-content: center;
+}
+
+@media  (max-width: 600px){ 
+
+    .div1 {
+        margin: 0%;
+    }
+
+    .titulo {
+        
+        margin-top: 30%;
+    }
+    button {
+        font-size: smaller;
+    }
+    #rueda {
+        margin-top:25%; 
+        display: flex; 
+        justify-content: center;
+    }
+}

@@ -1,0 +1,95 @@
+
+<div style="width: 95%;">
+    
+    <form method="post" #registro="ngForm" (ngSubmit)="registrarse(registro.value)" id="fields">
+        <div class="p-fluid grid "  style="display: flex; justify-content: center; margin-bottom: 0%;">
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <h3 style="text-align:right; ">Registro</h3>
+            </div>
+        </div>
+        <br>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center; ">
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <span class="p-float-label p-input-icon-left">
+                    <i class="pi pi-user"></i>
+                    <input name="nombre" required [(ngModel)]="nombre"  type="text"  pInputText > 
+                    <label for="inputtext">Nombre</label>
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <span class="p-float-label p-input-icon-left">
+                    <i class="pi pi-users"></i>
+                    <input name="apellidos" required type="text" [(ngModel)]="apellidos"  pInputText > 
+                    <label for="inputtext-left">Apellidos</label>
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <span class="p-float-label p-input-icon-left">
+                    <i class="pi pi-envelope"></i>
+                    <input name="email" required type="text" [(ngModel)]="email"  pInputText > 
+                    <label for="inputtext-left">Email</label>
+                </span>
+            </div>
+        </div>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+            
+            <p style="color: rgb(231, 52, 52);">{{mensajeErrorEmail}}</p>
+        
+        </div>
+        <br>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <span class="p-float-label p-input-icon-left">
+                    <i  class="pi pi-key"></i>
+                    <input name="pass1" required type="password" [(ngModel)]="pass1" autocomplete="false"  pInputText > 
+                    <label for="inputtext">Contraseña</label>
+                </span>
+            </div>
+        </div>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+            
+            <p style="color: rgb(231, 52, 52);">{{mensajeErrorContrasena}}</p>
+        
+        </div>
+        <br>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+
+            <div class="field col-7 md:col-4" style="margin-bottom: 0%;">
+                <span class="p-float-label p-input-icon-left">
+                    <i  class="pi pi-key"></i>
+                    <input name="pass2" required type="password" [(ngModel)]="pass2" autocomplete="false" pInputText > 
+                    <label for="inputtext-left">Repita Contraseña</label>
+                </span>
+            </div>
+        </div>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+            
+            <p style="color: rgb(231, 52, 52);">{{mensajeErrorContrasena}}</p>
+        
+        </div>
+        <br>
+    
+        <div class="p-fluid grid "  style="display: flex; justify-content: center;">
+            <div class="field col-7 md:col-4">
+                <button [disabled]="!registro.valid" pButton type="submit" label="Enviar" class="p-button-info"></button>
+            </div>
+        </div>
+        <div class="p-fluid grid "  style="display: flex; justify-content: center; margin-bottom: 4%;">
+            
+                <a routerLink="/login">¿Ya tienes cuenta?</a>
+            
+        </div>
+    </form>
+    
+</div>
+
+    
+

@@ -1,0 +1,74 @@
+.disabled
+{
+  pointer-events: none;
+  opacity: 0.5;
+  background: #CCC;
+}
+
+#rueda {
+  margin-top:10%; 
+  display: flex; 
+  justify-content: center;
+}
+
+@media  (max-width: 400px){  
+
+  #rueda {
+      margin-top:10%; 
+      
+  }
+
+}  
+
+
+.fc-direction-ltr {
+  border-bottom: 4px solid rgb(127, 179, 213) !important;
+  
+} 
+
+#con {
+  width: 50%; 
+  
+  margin-bottom: 5%; 
+  position:absolute; 
+  top: 8%; 
+  margin-top: 2%;
+  
+}
+
+#pista {
+  display: flex; 
+  justify-content: center; 
+  margin-top: 5%; 
+  margin-bottom: 0.5%;
+  z-index: 100; 
+  font-size: 1.5vw;
+  border: 3px solid rgb(127, 179, 213) !important;
+}
+
+
+
+
+@media  (max-width: 799px){
+  
+  #con {
+    width: 60%; 
+   
+    margin-bottom: 5%; 
+    position:absolute; 
+    top: 10%; 
+    margin-top: 2%;
+  }
+
+  #pista {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 3%; 
+    z-index: 100; 
+    font-size: 3.5vw;
+  }
+
+}
+
+
+

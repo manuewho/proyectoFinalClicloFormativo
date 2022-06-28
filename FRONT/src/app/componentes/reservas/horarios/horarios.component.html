@@ -1,0 +1,29 @@
+<fieldset class="flotante" >
+<label><b>{{fecha | date :'dd-MM-YYYY'}}</b></label>
+<button (click)="volver()" pButton type="button" class="p-button-secondary p-button-rounded posicion" icon="pi pi-times-circle"></button>
+
+
+<form #reserva="ngForm" (ngSubmit)="reservar(reserva.value)">
+    <div id="info">
+        <p><b>Pincha y selecciona</b></p>
+    </div>
+    <div id="info2">
+        <p><b>Seleccione horas</b></p>
+    </div>
+
+<select name="hora" required [(ngModel)]="hora" class="form-select " id="sel" size="10" aria-label="size 10 select example" multiple="multiple">
+    
+    <option *ngFor="let hor of horarios" [ngValue]="hor.name" [disabled]="!hor.available" class="btn btn-info" style="float: left; width: 100%;">
+            {{hor.name}}
+    </option>
+    
+    
+</select>
+
+<div style="display: flex;  justify-content: center; margin-top: 5%;">
+    <button pButton label="Reservar" [disabled]="!reserva.valid" type="submit" class="p-button-secondary p-button-outlined"></button>
+
+</div>
+
+</form>
+</fieldset>

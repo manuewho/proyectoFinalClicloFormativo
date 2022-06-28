@@ -1,0 +1,18 @@
+tr td, tr th {
+    border-left: 0 none;border-right: 0 none;
+}
+
+#rueda {
+    margin-top:10%; 
+    display: flex; 
+    justify-content: center;
+}
+
+@media  (max-width: 600px){  
+
+    #rueda {
+        margin-top:25%; 
+        
+    }
+
+}  

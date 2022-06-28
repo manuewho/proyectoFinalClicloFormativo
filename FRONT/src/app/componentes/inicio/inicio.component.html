@@ -1,0 +1,39 @@
+<div style="  margin: 0%;  padding: 0%; margin-left: 5%; margin-top: 3%;" >
+<div style="float: left;" class="r" >
+    <p-galleria [value]="images"  [containerStyle]="{'max-width': '100%'}" 
+    [showThumbnails]="false" [showIndicators]="true" [changeItemOnIndicatorHover]="true" [showIndicatorsOnItem]="true" indicatorsPosition="left">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" style="width: 100%; display: block;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+                <img [src]="item.thumbnailImageSrc" style="display: block;" />
+            </div>
+        </ng-template>
+    </p-galleria>
+</div>
+
+<div   style="float: left; " class="r" id="margen">
+    <p-card header="Club de Padel P" subheader="Bienvenidx a mi proyecto" [style]="{width: '320px'}" styleClass="p-card-shadow" class="">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="assets/img/pista2.jpg">
+        </ng-template>
+        <p >En el menú desplegable encontrará un acceso directo al inicio de sesión.
+            <br>
+            Sesión como usuario -> email: <b>sara@g.com</b> -> constraseña: <b>123456789</b>.
+            <br>
+            Sesión como administrador -> email: <b>paco@g.com</b> -> constraseña: <b>123456789</b>.</p>
+
+        <ng-template pTemplate="footer">
+           <div class="row">
+                <button *ngIf="tipoUSUARIO!=1 && tipoUSUARIO!=2"  class="btn btn-primary col-12" routerLink="/info">Más info &nbsp; &nbsp; <i class="pi pi-check"></i></button>
+                <button *ngIf="tipoUSUARIO==2" class="btn btn-primary col-12" routerLink="/pistasUS">Reserva &nbsp; &nbsp; <i class="pi pi-check"></i></button>
+                <button *ngIf="tipoUSUARIO==1" class="btn btn-primary col-12" routerLink="/pistas">Gestión &nbsp; &nbsp; <i class="pi pi-check"></i></button>
+
+           </div>
+        </ng-template>
+    </p-card>
+</div>
+  
+</div>
+

@@ -1,0 +1,81 @@
+<div *ngIf="!checked"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+<div *ngIf="checked" id="margenB">
+
+    <div style="display: flex; justify-content: center; " id="margenT">
+        <div style="border: 2px solid rgb(127, 179, 213); width: 80%; margin: 1px; padding: 1px; padding-bottom: 0%;">
+            <div style="display: flex; justify-content: left; margin-bottom: 1px; margin-left: 1%;">
+                    <h3 style="color: rgba(0, 0, 0, 0.779);">Resumen:</h3>
+            </div>
+
+
+            <div style="display: flex; justify-content: center;" >
+                <p-table [value]="ho" responsiveLayout="scroll" >
+                    <ng-template pTemplate="header">
+                        <tr>
+                          
+                            <th class="th" colspan="2" style="border: 0px;">Fecha: {{datosPago.fecha}}</th>
+                            <th class="th" style="border: 0px;">Usuario: {{usuario}}</th>
+                            <th class="th" style="border: 0px;">Pista: {{datosPago.pista}}</th>
+                            <th class="th" style="border: 0px;"></th>
+                            
+                        </tr>  
+                    </ng-template>
+                    <ng-template pTemplate="body" let-h>
+                        <tr > 
+                           
+                            <td style="border: 0px; ">Hora:</td>
+                            <td style="border: 0px; border-right: 2px solid rgb(127, 179, 213);">{{h.h}}</td>
+                            <td style="border: 0px;">Precio:</td>
+                            <td style="border: 0px;">{{h.p}}€</td>
+                            <td style="border: 0px; "></td>
+                    </tr>
+                    </ng-template>
+                    <ng-template pTemplate="footer" >
+                        <tr style="border-top: 2px solid black;"> 
+                            
+                            <td colspan="3">Total: </td>
+                            <td>{{total}}€</td>
+                            <td></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <div style="display: flex; justify-content: space-around;">
+                <div style="margin-top: 1%;">
+                    <button pButton type="button" (click)="makePayment(total)" class="p-button-info">Pago con tarjeta: {{total}}€</button>
+                </div>
+               
+                <div style="margin-top: 1%;">
+                    <button pButton type="button" (click)="cancelar()" class="p-button-danger">Cancelar Operación</button>
+                </div>
+            </div>
+            <p-divider></p-divider>
+            <div>
+                <p id="texto">
+                    *Email: cualquier email con estructura xxx@xxx.xx / número de tarjeta: 4242 4242 4242 4242 / fecha futura: (Ej: 12/26) / tres números aleatorios: (Ej: 123)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+      <!-- <div  style="display: flex; justify-content: center; margin-top: 1%;">
+            <button pButton type="button" (click)="pagoRealizado()" class="p-button-info">Reservar</button>
+        
+        </div>-->
+     
+</div>
+
+
+
+
+<!--<p-dialog header="Pago realizado" position="top" [(visible)]="display" [style]="{'border':'2px solid black'}">
+    ¡El pago se ha realizado correctamente, gracias!
+</p-dialog>-->
+
+<p-dialog header="Error en el pago" position="top" [(visible)]="display2" [style]="{'border':'2px solid black'}">
+    Ha habido algún error con el pago, si los datos eran corrector comuníquese con el administrador.
+</p-dialog>

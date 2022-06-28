@@ -1,0 +1,64 @@
+
+<div style="width: 100%; height: 4px; background-color: rgb(127, 179, 213);  margin-top: 0.5%;">
+</div>
+<div style="width: 4px; height: 50%; background-color: rgb(127, 179, 213); position: absolute; margin-top: -1%; margin-left: 1%;">
+</div>
+<!--<div style="width: 4px; height: 100%; background-color: rgb(241, 148, 138 ); position: fixed; margin-top: -1%; margin-left: 2%;">
+</div>-->
+<div *ngIf="tipo=='2'"  style="margin-left: 2.2%; " class="redes">
+    <div style="width: 15%; ">
+        <p-slideMenu  [viewportHeight]="320" id="menu" #menu [model]="items" [popup]="true" ></p-slideMenu>
+        <button pButton type="button" class="p-button-info p-button-rounded " (click)="menu.toggle($event)" ><i class="pi pi-align-justify" style="font-size: 1rem"></i> </button>
+        <i [ngStyle]="{color:'var(--blue-500)'}" class="pi pi-user"></i>
+    </div>
+    <div style="display: flex; justify-content: center;  ">
+        <a routerLink="/inicio"><img src="assets/img/logo2.png" class="logo"></a>
+    </div>
+    <div style="width: 15%; ">
+        <div style="display:flex; justify-content: end; margin-right: 2%;">
+            <button pButton type="button"  class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.facebook.com"><i class="pi pi-facebook" ></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.twitter.com"><i class="pi pi-twitter"></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text  " style="margin: 0%;"><a href="https://www.github.com"><i class="pi pi-github"></i></a></button>
+        </div>
+    </div>
+
+</div>
+<div *ngIf="tipo=='1'" style="margin-left: 2.2%;" class="redes">
+    <div style="width: 15%;">
+        <p-slideMenu  [viewportHeight]="260" id="menu" #menu [model]="itemsAdmin" [popup]="true" ></p-slideMenu>
+        <button pButton type="button" class="p-button-info p-button-rounded" (click)="menu.toggle($event)" ><i class="pi pi-align-justify" style="font-size: 1rem"></i> </button>
+        <i [ngStyle]="{color:'var(--yellow-500)'}" class="pi pi-star-fill"></i>
+    </div>
+    <div style="display: flex; justify-content: center;  ">
+        <a routerLink="/inicio"><img src="assets/img/logo2.png" class="logo"></a>
+    </div>
+    <div style="width: 15%; ">
+        <div style="display:flex; justify-content: end; margin-right: 2%;">
+            <button pButton type="button"  class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.facebook.com"><i class="pi pi-facebook" ></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.twitter.com"><i class="pi pi-twitter"></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text  " style="margin: 0%;"><a href="https://www.github.com"><i class="pi pi-github"></i></a></button>
+        </div>
+    </div>
+</div>
+<div *ngIf="tipo!='1' && tipo!='2'" style="margin-left: 2.2%;" class="redes">
+    <div style="width: 15%;">
+        <p-slideMenu  [viewportHeight]="260" id="menu" #menu [model]="itemsNous" [popup]="true" ></p-slideMenu>
+        <button pButton type="button" class="p-button-info p-button-rounded" (click)="menu.toggle($event)" ><i class="pi pi-align-justify" style="font-size: 1rem"></i> </button>
+    </div>
+    <div style="display: flex; justify-content: center;  ">
+        <a routerLink="/inicio"><img src="assets/img/logo2.png" class="logo2"></a>
+    </div>
+    <div style="width: 15%; ">
+        <!--
+        -->
+        <div style="display:flex; justify-content: end; margin-right: 2%;">
+            <button pButton type="button"  class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.facebook.com"><i class="pi pi-facebook" ></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text " style="margin: 0%;"><a href="https://www.twitter.com"><i class="pi pi-twitter"></i></a></button>
+            <button pButton type="button" class="p-button-text p-button-text  " style="margin: 0%;"><a href="https://www.github.com"><i class="pi pi-github"></i></a></button>
+        </div>
+       
+
+    </div>
+</div>
+<!--<div style="width: 100%; height: 4px; background-color: rgb(241, 148, 138 ); margin-bottom: 0.5%;">
+</div>-->

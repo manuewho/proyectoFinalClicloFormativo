@@ -1,0 +1,53 @@
+.flotante {
+    
+    padding: 1em;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    z-index: 100;
+    
+    
+}
+
+.orden {
+    display: flex; 
+    justify-content: center;
+}
+
+
+#img {
+    margin-top: -6%;
+}
+
+.volver {
+    
+    
+    z-index: 200;
+}
+
+#fields {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.ancho {
+    width: 30%;
+}
+
+#resp {
+    margin-top: 7%;
+}
+
+@media  (max-width: 400px){ 
+    #fields {
+        display: block; 
+        justify-content: center;
+    }
+    .ancho {
+        width: 100%;
+    }
+}
+
+
+
+
+

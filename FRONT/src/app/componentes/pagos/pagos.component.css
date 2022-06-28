@@ -1,0 +1,54 @@
+
+#margenT {
+    margin-top: 3%;
+}
+#margenB {
+    margin-bottom: 5%;
+}
+#rueda {
+    margin-top:10%; 
+    display: flex; 
+    justify-content: center;
+}
+
+#texto {
+    font-size: 1vw;
+}
+
+@media  (max-width: 750px){  
+
+    #texto {
+        font-size: 1.2vw;
+    }
+
+}  
+
+@media  (max-width: 600px){  
+
+    #rueda {
+        margin-top:25%; 
+        
+    }
+    #texto {
+        font-size: 1.6vw;
+    }
+
+}  
+
+@media  (max-width: 400px){ 
+
+    tr th {
+        text-align: center;
+    }
+
+    #margenT {
+        margin-top: 6%;
+    }
+    #margenB {
+        margin-bottom: 15%;
+    }
+    #texto {
+        font-size: 2.5vw;
+    }
+
+}

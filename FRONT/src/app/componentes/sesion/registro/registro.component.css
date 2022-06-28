@@ -1,0 +1,10 @@
+
+#fields {
+    margin-top: 3%;
+}
+
+@media  (max-width: 400px){ 
+    #fields {
+        margin-top: 10%;
+    }
+}

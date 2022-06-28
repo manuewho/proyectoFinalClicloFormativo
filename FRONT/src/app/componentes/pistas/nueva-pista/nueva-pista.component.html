@@ -1,0 +1,92 @@
+
+
+
+<h3 class="orden" id="resp">Gestión de pistas</h3>
+<div class="orden" >
+
+<fieldset  class="flotante" style="border: 4px solid rgb(127, 179, 213);" >
+        
+   
+    <div class="orden">
+    
+        <form   #pistaF="ngForm"  (ngSubmit)="insertar(pistaF.value)" style=" padding: 3%; width: 80%; " >
+            <!--"-->  
+            <div  id="fields">
+                <div class="grid p-fluid ancho" style="margin-top: 1%; margin-left: 1%; ">
+                    <div class="col-12 md:col-12">
+                        <div class="p-inputgroup">
+                            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input  name="numeracion" [(ngModel)]="codigo" required type="text" pInputText placeholder="Código"> 
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid p-fluid ancho" style="margin: 1%;" >
+                    <div class="col-12 md:col-12">
+                        
+                            <p-dropdown placeholder="Elija un tamaño" name="tamano" [options]="tamp" [(ngModel)]="tm" optionLabel="name"></p-dropdown>
+
+                        
+                    </div>
+                </div>
+                <div class="grid p-fluid ancho" style="margin: 1%;" >
+                    <div class="col-12 md:col-12">
+                        
+                            <p-dropdown placeholder="Elija suelo" name="tipop" [options]="tsue" [(ngModel)]="ts" optionLabel="name"></p-dropdown>
+
+                        
+                    </div>
+                </div>
+                
+               
+                <br>
+
+
+                
+            </div>
+            <br>
+            <div style="display: flex; justify-content: space-around;">
+                
+                <div >
+                    <label>Iluminación:</label>
+                    <br>
+                    <div style="display: flex; justify-content:center; margin-top: 10%;">
+                        <p-inputSwitch name="iluminacion" [(ngModel)]="iluminacion"></p-inputSwitch>
+
+                    </div>
+                </div>
+                <div >
+                    <label >Exterior:</label>
+                    <br>
+                    <div style="display: flex; justify-content:center; margin-top: 10%;">
+                        <p-inputSwitch name="exterior" [(ngModel)]="exterior"></p-inputSwitch>
+
+                    </div>
+                </div>
+                
+               
+            </div>
+            <!--<div>
+                <input #img type="file" accept="image/*" [(ngModel)]="vacio" (change)="imagen(img)" name="file" >
+            </div>-->
+
+            
+          
+        
+            <div class="orden" style="margin-top: 3%;">
+                <button pButton   label="{{boton}}" [disabled]="!pistaF.valid" type="submit" class="p-button-secondary p-button-outlined "></button>
+                <!--[disabled]="!usuarioA.valid"-->
+            </div>
+        </form>
+    </div>
+</fieldset>
+
+</div>
+<div  class="orden" style="margin-top: 2%;">
+    <button pButton type="button" routerLink="/pistas"  icon="pi pi-arrow-down" class="p-button-raised p-button-rounded p-button-outlined volver" ></button>
+
+</div>
+
+<p-dialog header="Error nombre" position="top" [(visible)]="display" [style]="{'border':'2px solid black'}">
+    Ya existe una pista con este nombre.
+</p-dialog>

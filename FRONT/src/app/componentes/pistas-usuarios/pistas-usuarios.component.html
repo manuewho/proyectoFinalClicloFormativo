@@ -1,0 +1,54 @@
+<div *ngIf="!checked"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div *ngIf="checked" style="display: flex; justify-content: center;">
+
+<div class="card" style="width: 80%; margin-top: 3%;">
+    <p-dataView #dv [value]="products" [paginator]="true" [rows]="3" filterBy="name"
+        [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+        <ng-template pTemplate="header" >
+               <h3 style="color: rgba(0, 0, 0, 0.652);">Pistas de Padel</h3>
+        </ng-template>
+       
+        <ng-template let-product pTemplate="gridItem" >
+            <div class="p-col-12 p-md-4" >
+                <div class="product-grid-item card" >
+                    <div class="product-grid-item-top" style="display: flex; justify-content: center; border-top: 2px solid rgb(127, 179, 213);">
+                             
+                           <i class="pi pi-sort-down"></i>
+                        
+                    </div>
+                    <div class="product-grid-item-content">
+                        
+                        <img [src]="'assets/img/' + product.imagen  "  />
+                        
+                        <div class="product-name">{{product.numeracion}}</div>
+                        <div class="product-description" style="text-align: left;">
+                            <ul style="list-style: square;">
+                                <li>Tipo de suelo: {{tipos[product.tipopista_id-1]}}</li>
+                                <li>Tamaño: {{tamanos[product.tamanopista_id-1]}} X {{tamanos[product.tamanopista_id-1]}}</li>
+                                <li *ngIf="product.iluminacion">Iluminacion: sí</li>
+                                <li *ngIf="!product.iluminacion">Iluminacion: no</li>
+                                <li *ngIf="product.exterior">Exterior: sí</li>
+                                <li *ngIf="!product.exterior">Exterior: no</li>
+
+                            </ul>
+                        </div>
+                      <!-- <div class="product-description">Tipo de suelo: {{tipos[product.tipopista_id-1]}} <br> Tamaño: {{tamanos[product.tamanopista_id-1]}} X {{tamanos[product.tamanopista_id-1]}} <br>
+                         Mañana: 10€/H - Tarde: 12€/H  </div>--> 
+                        <p-rating [ngModel]="product.valoracion" [readonly]="true" [cancel]="false"></p-rating>
+                    </div>
+                    <div class="row mt-5">
+                        <button class="btn btn-primary col-12" (click)="reservar(product.numeracion)">RESERVAR</button>
+                    </div>  
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+
+</div>
+
+<p-dialog header="Error Sesión" position="top" [(visible)]="display" [style]="{'border':'2px solid black'}">
+    Debes iniciar sesión con una cuenta para poder reservar
+</p-dialog>

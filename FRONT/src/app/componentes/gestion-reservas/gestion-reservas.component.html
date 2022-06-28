@@ -1,0 +1,48 @@
+<div *ngIf="!carga" id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+
+<div *ngIf="carga" class="container" style="margin-top: 4%; margin-bottom: 9%;">
+<h4 style="text-align: end;">Gestión de reservas</h4>
+<p-accordion >
+
+    <div *ngFor="let fe  of fechas2[0]">
+
+        <p-accordionTab  header="{{fe}}" >
+       
+            <div *ngFor="let res of reservas">
+
+                <table *ngIf="fe==res.fecha" class="table">
+               
+                    <tr>
+                        
+                        <th>Código pista: {{res.pista}}</th>
+                        <th style="display: flex; justify-content: end;">{{res.usuario}} {{res.apellidos}}</th>
+                        
+
+                    </tr>
+                    <tr *ngFor="let hor of res.horas" >
+                        <td  > {{hor.hora}}</td>
+                        
+                        <td style="display: flex; justify-content: end;"> <button (click)="asignar(hor.id,res.fecha,hor.hora)" pButton type="button" label="Eliminar" icon="pi pi-trash" class="p-button-danger"></button></td>
+                    </tr>
+                    
+                </table>
+
+            </div>
+          
+          </p-accordionTab>
+
+    </div>
+
+    
+   
+</p-accordion>
+</div>
+
+<div *ngIf="abrir">
+    <app-confirmacion (retorno)="eliminar($event)" [fecha]="fechaEnvio" [hora]="horaEnvio" [id]="idEnvio"></app-confirmacion>
+</div>
+
+

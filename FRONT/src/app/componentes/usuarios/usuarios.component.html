@@ -1,0 +1,66 @@
+<div *ngIf="!checked"  id="rueda">
+    <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div *ngIf="checked" style="width: 90%; margin-left: 5%; padding-bottom: 10%; margin-top: 2%;">
+
+    
+    
+
+    <p-table [value]="usuariosFiltrados"  responsiveLayout="scroll" class="p-element" showGridlines="false">
+        <ng-template pTemplate="caption">
+            <div class="flex" style="text-align: right;">
+                Usuarios resgistrados
+            </div>
+            <div class="mb-3">
+        
+                <input type="text" class="form-control" name="fil" [(ngModel)]="filtro" (keyup)="filtrar()" placeholder="filtro...">
+            </div>
+        </ng-template>
+       
+        <ng-template pTemplate="header">
+            <tr style="border: 0px;">
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th></th>
+                <th>Email</th>
+                <th>Administrador</th>
+                <th>Fecha creación</th>
+                <th></th>
+                <th></th>
+                
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-usuariosFiltrados>
+            <tr >
+                <td >{{usuariosFiltrados.nombre}}</td>
+                <td >{{usuariosFiltrados.apellidos}}</td>
+                <td><img src="assets/img/man.png"  width="80" class="shadow-4" /></td>
+
+                <td >{{usuariosFiltrados.email}}</td>
+                <td>
+                    <span *ngIf="usuariosFiltrados.tipo"><i [ngStyle]="{color:'var(--green-500)'}" class="pi pi-check"></i></span>
+                    <span *ngIf="!usuariosFiltrados.tipo"><i [ngStyle]="{color:'var(--red-700)'}" class="pi pi-times"></i></span>
+                </td>
+                <td >{{usuariosFiltrados.created_at | date:'dd/mm/yyyy'}}</td>
+
+                
+                
+                <td *ngIf="usuariosFiltrados.email!='paco@g.com'"><button class="btn btn-danger"  (click)="asignar(usuariosFiltrados.id, usuariosFiltrados.email)"><i class="pi pi pi-times" style="font-size: 1rem"></i></button></td>
+                <td *ngIf="usuariosFiltrados.email!='paco@g.com'"><button (click)="actualizar(usuariosFiltrados.id)" title="Actualizar" class="btn btn-info"><i class="pi pi-cog" style="font-size: 1rem"></i></button></td>
+
+            </tr>
+        </ng-template>
+       
+    </p-table>
+    </div>
+
+    <div *ngIf="abrir">
+        <app-eli (retorno)="eliminar($event)"  [id]="idEli"  [nombre]="emailEli"></app-eli>
+    </div>
+    
+    <p-dialog header="Error Eliminar" position="top" [(visible)]="display" [style]="{'border':'2px solid black'}">
+        El usuario tiene reservas y no lo puedes eliminar. Elimina sus reservas y vuelve a intentarlo    
+    </p-dialog>
+    <!--Estaría bien añadir atributo de stuff y hacer dos tablas con clientes y empleados-->

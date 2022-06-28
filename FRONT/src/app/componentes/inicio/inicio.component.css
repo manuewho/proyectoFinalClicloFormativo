@@ -1,0 +1,35 @@
+
+#margen {
+  
+    margin-left: 7%;
+    transition: all 1s;
+
+}
+@media  (max-width: 1250px){
+    .r {
+
+      
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      float: none;
+      transition: all 1s;
+    }
+    #margen {
+        margin-left: 0%;
+        margin-top: 5%;
+        margin-bottom: 10%;
+        transition: all 1s;
+    }
+
+   
+}
+
+@media  (max-width: 400px){  
+
+    .r {
+        width: 90%;
+    }
+}
+
+

@@ -1,0 +1,123 @@
+
+
+<div style=" margin-top: 4%; margin-bottom: 11%; display: flex; justify-content: center;">
+    <div style="  border: 3px solid rgb(127, 179, 213); width: 90%; padding: 2%; ">
+        <div style=" display: flex; justify-content: space-between; color: black; font-size: large; font-weight: bolder;">
+            <p>- Info -</p>
+            <div style="width: 50%; display: flex; justify-content: end;">
+            <button (click)="cambiaraEspanol()" pButton type="button" label="ES" class="p-button-outlined p-button-warning" style="margin-right: 1%;"></button>
+            <button (click)="cambiaraIngles()" pButton type="button" label="EN" class="p-button-outlined p-button-info"></button>
+            </div>
+
+        </div>
+        <p-divider></p-divider>
+        <div *ngIf="ES">
+            <div>
+                <p>Bienvenidx a mi proyecto, las siguientes líneas tienen como objetivo explicar el funcionamiento de la presente web. Espero que le sirvan de ayuda.</p> 
+                
+                <p-divider></p-divider>
+
+                <p>Esta web simula un negocio de reserva de pistas de padel con dos roles principales, el rol de usuario y el rol de administrador. 
+                    <br> 
+                    Cada uno de estos roles tiene posibilidades distintas en cuanto a las funcionalidades ya mencionadas.
+                    <br>
+                    <br>
+                    Al iniciar sesión desde el menú desplegable ubicado en la parte superior izquierda, este mismo menú se adaptará al rol con el que haya iniciado sesión, ofreciéndole acceso a las opciones que corresponden a dicho rol. 
+                    <br>
+                    <br>
+                    *(Sin iniciar sesión sólo tendrá acceso a la galería de pistas de padel y a las opciones de registro e inicio de sesión).
+                </p>
+
+            </div>
+            <p-divider></p-divider>
+            <div>
+                <u>Rol usuario:</u>
+                <br>
+                <br>
+                Si inicia sesión como usuario con las credenciales indicadas en el inicio (email: sara@g.com - contraseña: 123456789), podrá gestionar sus propias reservas.
+                <br><br>
+                -> Desde la galería de pistas de padel podrá selecionar aquella que desee y realizar una reserva para una fecha y hora (u horas) concretas. Además, en el último paso del proceso de reserva obtendrá un resumen con los precios, la fecha, 
+                las horas y la pista reservada, así como acceso a una pasarela de pago para terminar de reservar. Esta pasarela está implementada en modo desarrollo, por lo que para que la reserva se efectúe 
+                tan solo debe introducir un email inventado, un número de tarjeta compuesto por una repetición del número 42, una fecha cualquiera futura y tres números aleatorios.
+                <br><br>
+                -> En el menú desplegable encontrará una nueva sección llamada "Mis reservas" desde la cual podrá ver todas sus reservas realizadas como usuario y eliminarlas si lo desea.
+                <br><br>
+                *(Todas las reservas previas a la fecha actual se borran automáticamente cada vez que la web se actualiza).
+                <br>
+                *(En aquellos días en los que todas sus horas estén reservadas no tendrá acceso desde el calendario de reserva).
+            </div>
+            <p-divider></p-divider>
+            <div>
+                <u>Rol administrador:</u>
+                <br><br>
+                Si inicia sesión como administrador con las credenciales indicadas en el inicio (email: paco@g.com - contraseña: 123456789), podrá gestionar las distintas opciones que se ofrecen a los usuarios, accediendo a las distintas secciones de gestión desde el menú desplegable.
+                <br><br>
+                -> Gestión de reservas: podrá ver todas las reservas de todos los usuarios ordenadas por fecha. Dentro de cada fecha tendrá información acerca de la pista, el usuario y las horas reservadas. Como administrador podrá eliminar tantas reservas como desee, aunque de cara a que existan siempre algunos registros disponibles, le ruego no elimine en exceso. 
+                <br><br>
+                -> Gestión de usuarios: desde esta sección tendrá acceso a la lista de todos los usuarios registrados. En cada uno de ellos tiene la opción de eliminarlos, modificar sus datos e incluso convertirlos en administradores.
+                <br><br>
+                -> Gestión de pistas: en este apartado tendrá un listado con todas las pistas existentes y sus características. En cada una de ellas tiene la posibilidad de modificar sus características o eliminarla (siempre que no tengan reservas asociadas). Además de esto, podrá crear nuevas pistas con las características que desee (la imagen y la valoración de la pista se pone por defecto).
+                <br><br>
+                -> Gestión de horarios: por último, podrá activar o desactivar horarios de reserva. Están las 24 horas del día disponibles, en rojo aquellas que no están activas y en verde las que si están activas. Pinchando en ellas podrá activarlas o desactivarlas de modo que a los usuarios les aparezca la posibilidad de reservar en las horas definidas como activas. 
+            </div>
+            <p-divider></p-divider>
+            <div>
+                Muchas gracias por llegar hasta aquí y espero que le guste la web. 
+            </div>
+        </div>
+        <div *ngIf="EN">
+            <div>
+                <p>Welcome to my project, the following lines are intended to explain how this website works. I hope they help you.</p> 
+                
+                <p-divider></p-divider>
+
+                <p>This website simulates a paddle court reservation business with two main roles, the user role and the administrator role. 
+                    <br> 
+                    Each of these roles has different possibilities in terms of the functionalities already mentioned.
+                    <br>
+                    <br>
+                    When you log-in, from the top left dropdown menu, this same menu will adapt to the role you're logged in with, giving you access to options that apply to that role.
+                    <br>
+                    <br>
+                    *(If you don´t log-in you will only have access to the gallery of paddle courts and the registration and login options).
+                </p>
+
+            </div>
+            <p-divider></p-divider>
+            <div>
+                <u>User role:</u>
+                <br>
+                <br>
+                If you log-in as a user with the credentials indicated at the home page (email: sara@g.com - password: 123456789), you can manage your own reservations.
+                <br><br>
+                -> From the gallery of paddle courts you can select the one you want and make a reservation for a specific date and hour (or hours). In addition, in the last step of the reservation process you will get a summary with the prices, the date,
+                the hours and the paddle court reserved, as well as access to a payment gateway to complete the reservation. This gateway is implemented in development mode, so for the reservation to be made
+                you just have to enter an invented email, a card number made up of a repetition of the number 42, any future date and three random numbers.
+                <br><br>
+                -> In the drop-down menu you will find a new section called "Mis reservas" from which you can see all your reservations made as a user and delete them if you wish.
+                <br><br>
+                *(All reservations prior to the current date are automatically deleted each time the website is updated).
+                <br>
+                *(On those days where all its hours are reserved you will not have access from the reservation calendar).
+            </div>
+            <p-divider></p-divider>
+            <div>
+                <u>Administrator role:</u>
+                <br><br>
+                If you log-in as administrator with the credentials indicated at the home page (email: paco@g.com - password: 123456789), you can manage the different options offered to users, accessing the different management sections from the drop-down menu.
+                <br><br>
+                -> Reservation management: you will be able to see all the reservations of all the users sorted by date. Within each date you will have information about the paddle court, the user and the reserved hours. As an administrator you can delete as many reservations as you want, although in order to always have some records available, please do not delete too much.
+                <br><br>
+                -> User management: from this section you will have access to the list of all registered users. In each of them you have the option to delete them, modify their data and even make them administrators.
+                <br><br>
+                -> Paddle court management: in this section you will have a list with all the existing paddle courts and their characteristics. In each of them you have the possibility of modifying its characteristics or deleting it (as long as they do not have associated reservations). In addition to this, you will be able to create new paddle courts with the characteristics you want (the image and the rating of the paddle court is set by default).
+                <br><br>
+                -> Schedule management: finally, you can activate or deactivate reservation schedules. They are available 24 hours a day, in red those that are not active and in green those that are active. By clicking on them you can activate or deactivate them so that what users will see in order to book.
+            </div>
+            <p-divider></p-divider>
+            <div>
+                Thank you very much for coming here and I hope you like the web.            
+            </div>
+        </div>
+    </div>
+</div>
